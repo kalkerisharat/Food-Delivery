@@ -1,0 +1,281 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CraveCruise</title>
+    <!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/angular.js/1.8.3/angular.min.js" integrity="sha512-KZmyTq3PLx9EZl0RHShHQuXtrvdJ+m35tuOiwlcZfs/rE7NZv29ygNA8SFCkMXTnYZQK2OX0Gm2qKGfvWEtRXA==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/angular.js/1.8.3/angular-csp.css" integrity="sha512-f7WVHp6iaZ7iOx9duYm67KLwCFJ9KirfMIK0MAOxf1wq5M8Ogdw5ljbCxlk/BtWIbyXWMsIaDaqwUpXttPQ/5g==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/angular.js/1.8.3/angular-csp.min.css" integrity="sha512-nptw3cPhphu13Dy21CXMS1ceuSy2yxpKswAfZ7bAAE2Lvh8rHXhQFOjU+sSnw4B+mEoQmKFLKOj8lmXKVk3gow==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/angular.js/1.8.3/angular.js" integrity="sha512-klc+qN5PPscoGxSzFpetVsCr9sryi2e2vHwZKq43FdFyhSAa7vAqog/Ifl8tzg/8mBZiG2MAKhyjH5oPJp65EA==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <!-- Header Section -->
+    <header>
+        <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+            <div class="container">
+                <a class="navbar-brand" href="#">CraveCruise</a>
+                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+                <div class="collapse navbar-collapse" id="navbarNav">
+                    <ul class="navbar-nav ms-auto">
+                        <li class="nav-item">
+                            <a class="nav-link" href="#">Inspiration for your first order</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="#">Top brands for you</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="#">About Us</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="#">Contact</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="#" data-bs-toggle="modal" data-bs-target="#loginModal">Login</a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </nav>
+        <div class="header-content">
+         <h6>CraveCruise</h6>
+         <h5>| Cruising to Your Cravings |</h5>
+        </div>
+        <img src="https://deorwineblog.b-cdn.net/uploads/2019/11/inner-food-delivery-app.jpg" alt="Hamburger Catering">
+    </header>
+
+    <!-- Carousel Section -->
+    <div id="carouselExampleControls" class="carousel slide" data-bs-ride="carousel">
+        <div class="carousel-inner">
+            <div class="carousel-item active">
+                <img src="https://i0.wp.com/ecomeye.com/wp-content/uploads/2021/08/freshmenu.jpg?fit=512%2C265&ssl=1" class="d-block w-100" alt="First slide">
+            </div>
+            <div class="carousel-item">
+                <img src="https://i.pinimg.com/736x/86/1c/61/861c61a80c0f0be60cb889df3ea1d235.jpg" class="d-block w-100" alt="Second slide">
+            </div>
+            <div class="carousel-item">
+                <img src="https://www.mealgaadi.co.in/images/50CB_Instant_Aug_1920X420.jpg" class="d-block w-100" alt="Second slide">
+            </div>
+            <!-- Add more carousel items as needed -->
+        </div>
+        <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleControls" data-bs-slide="prev">
+          <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+          <span class="visually-hidden">Previous</span>
+        </button>
+        <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleControls" data-bs-slide="next">
+          <span class="carousel-control-next-icon" aria-hidden="true"></span>
+          <span class="visually-hidden">Next</span>
+        </button>
+    </div>
+    
+    <div class="container mt-5">
+        <!-- Display Area for Food Items -->
+        <div id="foodItemsContainer" class="row justify-content-center"></div>
+
+        <!-- Cart Section -->
+        <div id="cart" class="mt-4">
+            <h3 class="text-center mb-4">Your Cart</h3>
+            <ul id="cartItems" class="list-group mb-3"></ul>
+            <p class="text-center">Total: <span id="cartTotal">₹0.00</span></p>
+            <button id="checkoutBtn" class="btn btn-success btn-lg btn-block">Checkout</button>
+        </div>
+    </div>
+
+    <!-- Footer Section -->
+    <footer class="footer mt-5 py-3 bg-dark text-white text-center">
+        <div class="container">
+            <p>&copy; 2024 Food Delivery App.<br>All rights reserved.By continuing past this page, you agree to our Terms of Service, Cookie Policy, Privacy Policy and Content Policies. All trademarks are properties of their respective owners. 2008-2024 © TPR™ Ltd. All rights reserved.</p>
+        </div>
+    </footer>
+
+    <!-- Login Modal -->
+    <div class="modal fade" id="loginModal" tabindex="-1" aria-labelledby="loginModalLabel" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="loginModalLabel">Login</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                    <form id="loginForm">
+                        <div class="mb-3">
+                            <label for="username" class="form-label">Username</label>
+                            <input type="text" class="form-control" id="username" name="username" required>
+                        </div>
+                        <div class="mb-3">
+                            <label for="password" class="form-label">Password</label>
+                            <input type="password" class="form-control" id="password" name="password" required>
+                        </div>
+                        <div class="text-center">
+                            <button type="submit" class="btn btn-primary">Login</button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Bootstrap JS -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"></script>
+    <!-- jQuery -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+    <!-- Custom Script -->
+    <script src="script.js"></script>
+    <!-- XLSX Script -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/xlsx/0.17.0/xlsx.full.min.js"></script>
+    <!-- Custom Login Script -->
+    <script>
+        $(document).ready(function() {
+            const foodItemsUrl = 'data.json';
+            let cartItems = [];
+            const usdToInrRate = 75.0; // Conversion rate from USD to INR (Indian Rupees)
+
+            // Ajax request to fetch food items
+            $.ajax({
+                url: foodItemsUrl,
+                dataType: 'json',
+                success: function(data) {
+                    if (data && data.length > 0) {
+                        displayFoodItems(data);
+                    } else {
+                        $('#foodItemsContainer').html('<p>No food items available.</p>');
+                    }
+                },
+                error: function() {
+                    $('#foodItemsContainer').html('<p>Error fetching food items.</p>');
+                }
+            });
+
+            // Function to display food items on the webpage with animations
+            function displayFoodItems(items) {
+                let delay = 0;
+                items.forEach(item => {
+                    const card = $(`
+                        <div class="col-md-4 mb-4" style="opacity: 0; transform: translateY(50px); transition: opacity 0.5s ease, transform 0.5s ease ${delay}ms;">
+                            <div class="card">
+                                <img src="${item.image}" class="card-img-top" alt="${item.name}">
+                                <div class="card-body">
+                                    <h5 class="card-title">${item.name}</h5>
+                                    <p class="card-text">${item.description}</p>
+                                    <p class="card-text">₹${convertToINR(item.price)}</p>
+                                    <button class="btn btn-primary addToCartBtn" data-id="${item.id}">Add to Cart</button>
+                                </div>
+                            </div>
+                        </div>
+                    `);
+                    $('#foodItemsContainer').append(card);
+                    setTimeout(() => {
+                        card.css({ opacity: 1, transform: 'translateY(0)' });
+                    }, delay);
+                    delay += 100;
+                });
+
+                // Add event listener for Add to Cart buttons with hover effect
+                $('.addToCartBtn').hover(
+                    function() {
+                        $(this).addClass('animate__pulse');
+                    },
+                    function() {
+                        $(this).removeClass('animate__pulse');
+                    }
+                );
+
+                // Add event listener for Add to Cart buttons
+                $('.addToCartBtn').click(function() {
+                    const itemId = $(this).data('id');
+                    const selectedItem = items.find(item => item.id === itemId);
+                    if (selectedItem) {
+                        cartItems.push(selectedItem);
+                        updateCart();
+                    }
+                });
+            }
+
+            // Function to convert USD price to INR
+            function convertToINR(usdPrice) {
+                return (usdPrice * usdToInrRate).toFixed(2); // Convert USD price to INR and return formatted string
+            }
+
+            // Function to update the cart display with animations
+            function updateCart() {
+                $('#cartItems').empty();
+                let total = 0;
+                cartItems.forEach((item, index) => {
+                    const cartItem = $(`
+                        <li class="list-group-item d-flex justify-content-between align-items-center" id="cartItem_${index}" style="opacity: 0; transform: translateX(50px); transition: opacity 0.5s ease, transform 0.5s ease;">
+                            <span>${item.name} - ₹${convertToINR(item.price)}</span>
+                            <button class="btn btn-danger btn-sm removeCartItemBtn" data-index="${index}">Remove</button>
+                        </li>
+                    `);
+                    $('#cartItems').append(cartItem);
+                    setTimeout(() => {
+                        cartItem.css({ opacity: 1, transform: 'translateX(0)' });
+                    }, 100);
+                    total += item.price;
+                });
+                $('#cartTotal').text(`₹${convertToINR(total)}`); // Display total cart amount in INR
+
+                // Add event listener for Remove buttons
+                $('.removeCartItemBtn').click(function() {
+                    const index = $(this).data('index');
+                    cartItems.splice(index, 1); // Remove item from cart array
+                    $(`#cartItem_${index}`).remove(); // Remove item from cart display
+                    updateCart(); // Update cart total
+                });
+            }
+
+            // Checkout button click handler with bounce animation
+            $('#checkoutBtn').click(function() {
+                $(this).addClass('animate__animated animate__bounce');
+                setTimeout(() => {
+                    $(this).removeClass('animate__animated animate__bounce');
+                    alert('Checkout functionality is not implemented in this project.');
+                    // (send to backend for order processing)
+                }, 1000);
+            });
+
+            // Form validation using jQuery
+            $('#loginForm').submit(function(event) {
+            event.preventDefault(); // Prevent form submission
+
+            const username = $('#username').val();
+            const password = $('#password').val();
+
+            // Basic validation 
+            if (username.trim() === '' || password.trim() === '') {
+                alert('Please enter both username and password.');
+                return;
+            }
+
+            // Generate Excel file
+            const data = [
+                ["Username", "Password"], // Add headings
+                [username, password] // Add data
+            ];
+            const ws = XLSX.utils.aoa_to_sheet(data);
+            const wb = XLSX.utils.book_new();
+            XLSX.utils.book_append_sheet(wb, ws, "LoginData");
+            XLSX.writeFile(wb, "LoginData.xlsx");
+
+            // Alert the user
+            alert(`Login successful!\nUsername: ${username}\nPassword: ${password}\nYour data has been saved in an Excel file.`);
+
+            // Close the modal
+            $('#loginModal').modal('hide');
+
+            // Clear form fields
+            $('#username').val('');
+            $('#password').val('');
+            
+          });
+        });
+    </script>
+    
+</body>
+</html>

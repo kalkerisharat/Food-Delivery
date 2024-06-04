@@ -1,0 +1,163 @@
+
+header {
+    background-color: yellow; 
+}
+
+.navbar-brand {
+    font-size: 1.5rem;
+    font-weight: bold;
+}
+
+.navbar-nav .nav-link {
+    color: #fff; 
+    margin-left: 15px;
+}
+
+
+.container {
+    max-width: 900px;
+}
+
+/* Styling for food items */
+.card {
+    border: none;
+    border-radius: 10px;
+    box-shadow: 0 4px 12px rgba(189, 23, 23, 0.1);
+    transition: transform 0.3s ease;
+    background-color: #fff;
+}
+
+.card:hover {
+    transform: translateY(-5px);
+}
+
+.card img {
+    border-top-left-radius: 10px;
+    border-top-right-radius: 10px;
+    height: 200px;
+    object-fit: cover;
+}
+
+.card-title {
+    font-size: 1.2rem;
+    font-weight: bold;
+    color: #9b1616;
+}
+
+.card-text {
+    color: #666;
+}
+
+.addToCartBtn {
+    width: 100%;
+}
+
+/* Cart section styles */
+£cart {
+    border: none;
+    border-radius: 10px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+    overflow: hidden;
+    padding: 20px;
+    background-color: #f9f9f9; 
+}
+
+#cart h3 {
+    font-size: 2rem;
+    color: #333;
+}
+
+#cartItems {
+    max-height: 200px;
+    overflow-y: auto;
+}
+
+/* Footer styles */
+.footer {
+    background-color: #d2d9df; 
+    color: #fff; 
+}
+header {
+    position: relative;
+    text-align: center;
+  }
+  
+  header img {
+    width: 100%;
+    max-width: 1600px;
+    min-width: 500px;
+    height: auto;
+  }
+
+  h1, h2, h3, h4, h5, h6 {
+    font-family: "Times New Roman", Georgia, Serif;
+    letter-spacing: 2px;
+  }
+  h6 {
+    font-size: 100px;
+  }
+
+  @media screen and (min-width: 600px) {
+    nav {
+      display: flex;
+      justify-content: left-side;
+      font-size: 15px;
+    }
+}
+
+.header-content {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    color: white;
+  }
+  
+  header .header-content h1 {
+    font-size: 25px;
+  }
+
+  header {
+    position: relative;
+    text-align: center;
+  }
+  
+  header img {
+    width: 100%;
+    max-width: 1600px;
+    min-width: 500px;
+    height: auto;
+  }
+
+  /* Carousel container */
+#carouselExampleIndicators {
+  width: 100%; /* Set the width to fill its parent container */
+  margin: auto; /* Center the carousel horizontally */
+}
+
+/* Carousel indicators */
+.carousel-indicators li {
+  background-color: #007bff; /* Default indicator color */
+}
+
+.carousel-indicators .active {
+  background-color: #ff0000; /* Active indicator color */
+}
+
+/* Carousel images */
+.carousel-inner .carousel-item img {
+  width: 100%; /* Make images fill the carousel container */
+  height: auto; /* Maintain aspect ratio */
+}
+
+/* Carousel controls */
+.carousel-control-prev,
+.carousel-control-next {
+  width: auto; /* Set width to auto to fit the content */
+  color: #fff; /* Control arrows color */
+}
+
+.carousel-control-prev-icon,
+.carousel-control-next-icon {
+  background-color: rgba(0, 0, 0, 0.5); /* Control arrows background color */
+}
